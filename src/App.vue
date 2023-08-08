@@ -1,18 +1,13 @@
 <template>
-  <h1>Initial Commit</h1>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Welcome to Your Vue.js App" />
+  <h1>Portfoly'All</h1>
+  <h2>Projects List</h2>
+  <!-- <img alt="Vue logo" src="./assets/logo.png" />
+  <HelloWorld msg="Welcome to Your Vue.js App" /> -->
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+// import HelloWorld from "./components/HelloWorld.vue";
 
-export default {
-  name: "App",
-  components: {
-    HelloWorld,
-  },
-};
 </script>
 
 <style lang="scss">

@@ -13,9 +13,7 @@ describe("ProjectItem.vue", () => {
 
   it("emits remove from favourites event when remove from favourites button is clicked", () => {});
 
-  it("emits unlike event when like button is clicked", () => { });
-  
-  
+  it("emits unlike event when like button is clicked", () => {});
 
   // COMMENT
   // it("renders comment correctly", () => {});
@@ -25,5 +23,4 @@ describe("ProjectItem.vue", () => {
   // it("not add a comment when comment is empty", () => {});
 
   // it("clears textarea when submit comment button is clicked", () => {});
-
 });

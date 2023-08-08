@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
     <p>
@@ -103,7 +103,6 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 h3 {
   margin: 40px 0 0;
@@ -120,3 +119,70 @@ a {
   color: #42b983;
 }
 </style>
+-->
+
+<!-- APP -->
+<!-- <script>
+// import HelloWorld from "./components/HelloWorld.vue";
+import ProjectItem from "./components/ProjectItem.vue";
+
+export default {
+  name: "App",
+  data() {
+    return {
+      projects: [
+        {
+          id: 1,
+          title: "Project 1",
+          description: "Description 1",
+          image: "https://picsum.photos/200/300",
+        },
+        {
+          id: 2,
+          title: "Project 2",
+          description: "Description 2",
+          image: "https://picsum.photos/200/300",
+        },
+        {
+          id: 3,
+          title: "Project 3",
+          description: "Description 3",
+          image: "https://picsum.photos/200/300",
+        },
+      ],
+    };
+  },
+  components: {
+    // HelloWorld,
+    ProjectItem,
+    // CourseList,
+  },
+};
+</script> -->
+
+<!-- <script>
+// import HelloWorld from "./components/HelloWorld.vue";
+import ProjectItem from "./components/ProjectItem.vue";
+
+export default {
+  name: "App",
+  props: {
+    project: {
+      type: Object,
+      default() {
+        return {
+          id: 0,
+          title: "Project Name",
+          description: "Description of the Project",
+          image: "https://picsum.photos/200/300",
+        };
+      },
+    },
+  },
+  data() { },
+
+  components: {
+    // HelloWorld,
+  },
+};
+</script> -->
