@@ -1,5 +1,5 @@
 # Portfoly'all
-#### This is a portfolio web app where projects are showcased for viewing, liking, and commenting from viewers.
+#### This is a portfolio web app where projects are showcased for viewing and liking from viewers.
 
 ## Project setup
 ```
@@ -33,7 +33,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 ```
 Created test decription for each of the components I am expecting to make.
 ```
-### FavouritesList
+### ProjectItem
 ```
 1. renders props: project when passed
 2. emits like event when like button is clicked
