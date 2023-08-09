@@ -3,12 +3,15 @@
     <h2>{{ project.title }}</h2>
     <p>{{ project.description }}</p>
     <img :src="project.image" alt="Project Image" />
+
+    <button v-if="isLiked" @click="sendLike">Like</button>
+    <button v-else-if="isDisliked" @click="sendDislike">Dislike</button>
   </div>
 </template>
 
 <script>
 export default {
-  name: "App",
+  name: "CourseItem",
   props: {
     project: {
       type: Object,
@@ -22,19 +25,36 @@ export default {
       },
     },
   },
-  data() {},
+  data() {
+    return {
+      isLiked: false,
+    };
+  },
 
-  components: {
-    // HelloWorld,
+  methods: {
+    sendLike() {
+      this.$emit("likeProject", this.project.id);
+      this.isLiked = true;
+    },
+    sendDislike() {
+      this.$emit("dislikeProject", this.project.id);
+      this.isLiked = false;
+    },
   },
 };
 </script>
 
 <style lang="scss">
 .project {
-  background-color: rgb(4, 73, 25);
-  color: rgb(248, 248, 248);
+  // background-color: rgb(4, 73, 25);
+  color: rgb(153, 153, 153);
   padding: 25px 50px 50px;
-  margin-bottom: 50px;
+  margin-bottom: 25px;
+}
+
+button {
+  background-color: rgba(235, 4, 4, 0.87);
+  color: rgb(255, 255, 255);
+  padding: 25px 50px 50px;
 }
 </style>

@@ -3,6 +3,8 @@
     <ProjectItem
       v-for="project in projects"
       :project="project"
+      @likeProject="likeProject"
+      @dislikeProject="dislikeProject"
       :key="project.id"
     ></ProjectItem>
   </div>
@@ -24,7 +26,14 @@ export default {
   components: {
     ProjectItem,
   },
-  methods: {},
+  methods: {
+    likeProject(id) {
+      this.$emit("likeProject", id);
+    },
+    dislikeProject(id) {
+      this.$emit("dislikeProject", id);
+    },
+  },
 };
 </script>
 

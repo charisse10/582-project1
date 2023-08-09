@@ -1,13 +1,14 @@
 <template>
-  <h1>PORTFOLIO APP</h1>
+  <h1>Portfolio App</h1>
   <h2>PROJECTS</h2>
-  <div :projects="projects"></div>
+
+  <!-- <div :projects="projects"></div> -->
 
   <FavouritesList :projects="projects"></FavouritesList>
 
-  <div class="popular">
-    <h2>POPULAR PROJECTS</h2>
-    <div>{{ projectsLiked }}</div>
+  <h2>POPULAR PROJECTS</h2>
+  <div v-for="project in projectsLikedList" :key="project">
+    {{ project != null ? projects[parseInt(project) - 1] : "" }}
   </div>
 </template>
 
@@ -18,6 +19,7 @@ export default {
   name: "App",
   data() {
     return {
+      projectsLikedList: [],
       projects: [
         {
           id: 1,
@@ -43,10 +45,21 @@ export default {
       ],
     };
   },
+
   components: {
     FavouritesList,
   },
-  methods: {},
+
+  methods: {
+    likeProject(id) {
+      this.projectsLiked++;
+      this.projectsLikedList[id] = id;
+    },
+    dislikeProject(id) {
+      this.projectsLiked--;
+      this.projectsLikedList[id] = null;
+    },
+  },
 };
 </script>
 
