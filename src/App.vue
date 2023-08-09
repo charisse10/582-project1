@@ -3,7 +3,11 @@
   <h2>PROJECTS</h2>
   <div :projects="projects"></div>
 
-  <FavouritesList></FavouritesList>
+  <FavouritesList
+    :projects="projects"
+    @likeProject="likeProject"
+    @unlikeProject="unlikeProject"
+  ></FavouritesList>
 
   <div class="popular">
     <h2>POPULAR PROJECTS</h2>
