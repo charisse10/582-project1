@@ -5,5 +5,4 @@ describe("FavouritesList.vue", () => {
   it("it renders prop: project when passed", () => {});
 
   it("emits project added event when add project button is clicked", () => {});
-
 });
