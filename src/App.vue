@@ -1,26 +1,46 @@
 <template>
-  <h1>PoRTFoLIo App</h1>
-  <h2>Projects</h2>
-  <!-- <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Welcome to Your Vue.js App" /> -->
+  <h1>PORTFOLIO APP</h1>
+  <h2>PROJECTS</h2>
+  <div :projects="projects"></div>
+
+  <FavouritesList></FavouritesList>
+
+  <div class="popular">
+    <h2>POPULAR PROJECTS</h2>
+    <div>{{ projectsLiked }}</div>
+  </div>
 </template>
 
 <script>
-// import HelloWorld from "./components/HelloWorld.vue";
-import CourseItem from "./components/ProjectItem.vue";
+import FavouritesList from "./components/FavouritesList.vue";
 
 export default {
   name: "App",
+  data() {
+    return {
+      projects: [
+        {
+          id: 1,
+          title: "Project 1",
+          description: "Description 1",
+        },
+        {
+          id: 2,
+          title: "Project 2",
+          description: "Description 2",
+        },
+        {
+          id: 3,
+          title: "Project 3",
+          description: "Description 3",
+        },
+      ],
+    };
+  },
+  components: {
+    FavouritesList,
+  },
 };
 </script>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<style lang="scss"></style>

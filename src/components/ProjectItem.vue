@@ -1,14 +1,32 @@
 <template>
   <h1>...</h1>
-  <!-- <div class="project">
+  <div class="project">
     <h2>{{ project.title }}</h2>
     <p>{{ project.description }}</p>
-    <img :src="project.image" :alt="project.title" />
-  </div> -->
-  <!-- <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" /> -->
+  </div>
 </template>
 
-<script></script>
+<script>
+export default {
+  name: "App",
+  props: {
+    project: {
+      type: Object,
+      default() {
+        return {
+          id: 0,
+          title: "Project Name",
+          description: "Description of the Project",
+        };
+      },
+    },
+  },
+  data() {},
+
+  components: {
+    // HelloWorld,
+  },
+};
+</script>
 
 <style lang="scss"></style>
