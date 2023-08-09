@@ -16,10 +16,10 @@ describe("ProjectItem.vue", () => {
   });
 
   it("emits like event when like button is clicked", async () => {
-    // const wrapper = shallowMount(ProjectItem);
-    // await wrapper.find("button").trigger("click");
-    // expect(wrapper.emitted(like)).toBeTruthy();
-    // expect(wrapper.vm.like).toBe(true);
+    const wrapper = shallowMount(ProjectItem);
+    await wrapper.find("button").trigger("click");
+    expect(wrapper.emitted(like)).toBeTruthy();
+    expect(wrapper.vm.like).toBe(true);
   });
 
   it("displays class when like button is clicked", () => {});

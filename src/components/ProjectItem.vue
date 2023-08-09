@@ -4,8 +4,8 @@
     <p>{{ project.description }}</p>
     <img :src="project.image" alt="Project Image" />
 
-    <button v-if="isLiked" @click="sendLike">Like</button>
-    <button v-else-if="isDisliked" @click="sendDislike">Dislike</button>
+    <button v-if="!isLiked" @click="sendLike">Like</button>
+    <button class="unlike" v-else @click="sendUnlike">Unlike</button>
   </div>
 </template>
 
@@ -32,14 +32,14 @@ export default {
   },
 
   methods: {
-    // sendLike() {
-    //   this.$emit("likeProject", this.project.id);
-    //   this.isLiked = true;
-    // },
-    // sendDislike() {
-    //   this.$emit("dislikeProject", this.project.id);
-    //   this.isLiked = false;
-    // },
+    sendLike() {
+      this.$emit("likeProject", this.project.id);
+      this.isLiked = true;
+    },
+    sendUnlike() {
+      this.$emit("unlikeProject", this.project.id);
+      this.isLiked = false;
+    },
   },
 };
 </script>
@@ -54,8 +54,15 @@ export default {
 
 button {
   display: block;
-  background-color: rgba(235, 4, 4, 0.87);
+  background-color: rgb(3, 138, 43);
   color: rgb(255, 255, 255);
-  padding: 25px 50px 50px;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 50px;
+  margin: 25px auto;
+}
+
+.unlike {
+  background-color: rgb(231, 231, 231);
 }
 </style>

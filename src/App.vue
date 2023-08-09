@@ -3,7 +3,11 @@
 
   <!-- <div :projects="projects"></div> -->
 
-  <FavouritesList :projects="projects"></FavouritesList>
+  <FavouritesList
+    :projects="projects"
+    @likeProject="likeProject"
+    @unlikeProject="unlikeProject"
+  ></FavouritesList>
 
   <!-- @likeProject="likeProject"
   @dislikeProject="dislikeProject" -->
@@ -53,12 +57,12 @@ export default {
   },
 
   methods: {
-    // likeProject(id) {
-    //   this.projectsLikedList[id] = id;
-    // },
-    // dislikeProject(id) {
-    //   this.projectsLikedList[id] = null;
-    // },
+    likeProject(id) {
+      this.projectsLikedList[id] = id;
+    },
+    unlikeProject(id) {
+      this.projectsLikedList[id] = null;
+    },
   },
 };
 </script>
