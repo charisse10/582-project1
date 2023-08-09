@@ -8,7 +8,7 @@ describe("FavouritesList.vue", () => {
 
   it("adds the project to favourites when action is made", () => {});
 
-  it("emits unliked event when action is made in ProjectItem", () => {});
+  it("emits disliked event when action is made in ProjectItem", () => {});
 
   it("removes the project from favourites when action is made", () => {});
 });

@@ -11,7 +11,7 @@
 
 <script>
 export default {
-  name: "CourseItem",
+  name: "ProjectItem",
   props: {
     project: {
       type: Object,
@@ -32,14 +32,14 @@ export default {
   },
 
   methods: {
-    sendLike() {
-      this.$emit("likeProject", this.project.id);
-      this.isLiked = true;
-    },
-    sendDislike() {
-      this.$emit("dislikeProject", this.project.id);
-      this.isLiked = false;
-    },
+    // sendLike() {
+    //   this.$emit("likeProject", this.project.id);
+    //   this.isLiked = true;
+    // },
+    // sendDislike() {
+    //   this.$emit("dislikeProject", this.project.id);
+    //   this.isLiked = false;
+    // },
   },
 };
 </script>
@@ -53,6 +53,7 @@ export default {
 }
 
 button {
+  display: block;
   background-color: rgba(235, 4, 4, 0.87);
   color: rgb(255, 255, 255);
   padding: 25px 50px 50px;

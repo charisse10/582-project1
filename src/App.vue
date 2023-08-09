@@ -1,15 +1,17 @@
 <template>
   <h1>Portfolio App</h1>
-  <h2>PROJECTS</h2>
 
   <!-- <div :projects="projects"></div> -->
 
   <FavouritesList :projects="projects"></FavouritesList>
 
+  <!-- @likeProject="likeProject"
+  @dislikeProject="dislikeProject" -->
+
   <h2>POPULAR PROJECTS</h2>
-  <div v-for="project in projectsLikedList" :key="project">
-    {{ project != null ? projects[parseInt(project) - 1] : "" }}
-  </div>
+  <!-- <div v-for="project in projectsLikedList" :key="project">
+    {{ project.name }}
+  </div> -->
 </template>
 
 <script>
@@ -28,20 +30,20 @@ export default {
             "This project was created with Vue.js. It is a portfolio app that displays projects, description and image.",
           image: "https://placehold.co/350x200/EEE/31343C0",
         },
-        {
-          id: 2,
-          title: "Nature Reserve App",
-          description:
-            "This project was created with React.js. It is a chat app that displays messages, users and images.",
-          image: "https://placehold.co/350x200/EEE/31343C0",
-        },
-        {
-          id: 3,
-          title: "Movie Review App",
-          description:
-            "This project was created with Angular.js. It is a movie review app that displays movies, reviews and images.",
-          image: "https://placehold.co/350x200/EEE/31343C0",
-        },
+        // {
+        //   id: 2,
+        //   title: "Nature Reserve App",
+        //   description:
+        //     "This project was created with React.js. It is a chat app that displays messages, users and images.",
+        //   image: "https://placehold.co/350x200/EEE/31343C0",
+        // },
+        // {
+        //   id: 3,
+        //   title: "Movie Review App",
+        //   description:
+        //     "This project was created with Angular.js. It is a movie review app that displays movies, reviews and images.",
+        //   image: "https://placehold.co/350x200/EEE/31343C0",
+        // },
       ],
     };
   },
@@ -51,14 +53,12 @@ export default {
   },
 
   methods: {
-    likeProject(id) {
-      this.projectsLiked++;
-      this.projectsLikedList[id] = id;
-    },
-    dislikeProject(id) {
-      this.projectsLiked--;
-      this.projectsLikedList[id] = null;
-    },
+    // likeProject(id) {
+    //   this.projectsLikedList[id] = id;
+    // },
+    // dislikeProject(id) {
+    //   this.projectsLikedList[id] = null;
+    // },
   },
 };
 </script>
