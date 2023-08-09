@@ -1,12 +1,17 @@
 <template>
-  <h1>Portfoly'All</h1>
-  <h2>Projects List</h2>
+  <h1>PoRTFoLIo App</h1>
+  <h2>Projects</h2>
   <!-- <img alt="Vue logo" src="./assets/logo.png" />
   <HelloWorld msg="Welcome to Your Vue.js App" /> -->
 </template>
 
 <script>
 // import HelloWorld from "./components/HelloWorld.vue";
+import CourseItem from "./components/ProjectItem.vue";
+
+export default {
+  name: "App",
+};
 </script>
 
 <style lang="scss">

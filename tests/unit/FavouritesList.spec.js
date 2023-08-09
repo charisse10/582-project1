@@ -1,5 +1,5 @@
-import { shallowMount } from "@vue/test-utils";
-import ProjectItem from "@/components/FavouritesList.vue";
+// import { shallowMount } from "@vue/test-utils";
+// import ProjectItem from "@/components/FavouritesList.vue";
 
 describe("FavouritesList.vue", () => {
   it("renders props correctly", () => {});

@@ -1,5 +1,5 @@
-import { shallowMount } from "@vue/test-utils";
-import ProjectItem from "@/components/ProjectItem.vue";
+// import { shallowMount } from "@vue/test-utils";
+// import ProjectItem from "@/components/ProjectItem.vue";
 
 describe("ProjectItem.vue", () => {
   it("renders props: project when passed", () => {});
