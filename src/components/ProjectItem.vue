@@ -1,8 +1,8 @@
 <template>
-  <h1>...</h1>
   <div class="project">
     <h2>{{ project.title }}</h2>
     <p>{{ project.description }}</p>
+    <img :src="project.image" alt="Project Image" />
   </div>
 </template>
 
@@ -17,6 +17,7 @@ export default {
           id: 0,
           title: "Project Name",
           description: "Description of the Project",
+          image: "https://placehold.co/EEE/31343C0",
         };
       },
     },
@@ -29,4 +30,11 @@ export default {
 };
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+.project {
+  background-color: rgb(104, 104, 104);
+  color: white;
+  padding: 25px 50px 50px;
+  margin-bottom: 50px;
+}
+</style>

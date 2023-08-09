@@ -3,11 +3,7 @@
   <h2>PROJECTS</h2>
   <div :projects="projects"></div>
 
-  <FavouritesList
-    :projects="projects"
-    @likeProject="likeProject"
-    @unlikeProject="unlikeProject"
-  ></FavouritesList>
+  <FavouritesList :projects="projects"></FavouritesList>
 
   <div class="popular">
     <h2>POPULAR PROJECTS</h2>
@@ -27,16 +23,7 @@ export default {
           id: 1,
           title: "Project 1",
           description: "Description 1",
-        },
-        {
-          id: 2,
-          title: "Project 2",
-          description: "Description 2",
-        },
-        {
-          id: 3,
-          title: "Project 3",
-          description: "Description 3",
+          image: "https://placehold.co/300x300/EEE/31343C0",
         },
       ],
     };
@@ -44,7 +31,15 @@ export default {
   components: {
     FavouritesList,
   },
+  methods: {},
 };
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  text-align: center;
+  max-width: 90%;
+  margin: 0 auto;
+}
+</style>
