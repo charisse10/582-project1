@@ -1,4 +1,4 @@
-# Portfoly'all
+# PORTFOLIO APP
 #### This is a portfolio web app where projects are showcased for viewing and liking from viewers.
 
 ## Project setup
