@@ -18,11 +18,14 @@ describe("ProjectItem.vue", () => {
   it("emits like event when like button is clicked", async () => {
     const wrapper = shallowMount(ProjectItem);
     await wrapper.find("button").trigger("click");
-    expect(wrapper.emitted(like)).toBeTruthy();
-    expect(wrapper.vm.like).toBe(true);
+    expect( wrapper.emitted("likeProject")).toBeTruthy();
+    expect(wrapper.vm.isLiked).toBe(true);
   });
 
-  it("displays class when like button is clicked", () => {});
+  it("displays class when like button is clicked", () => {
+    const wrapper = shallowMount(ProjectItem);
+    expect(wrapper.find("button").class()).toContain(".unlike");
+  });
 
   it("emits add to favourites event when like button is clicked", () => {});
 
