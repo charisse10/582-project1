@@ -21,9 +21,24 @@ export default {
       projects: [
         {
           id: 1,
-          title: "Project 1",
-          description: "Description 1",
-          image: "https://placehold.co/300x300/EEE/31343C0",
+          title: "Profile App",
+          description:
+            "This project was created with Vue.js. It is a portfolio app that displays projects, description and image.",
+          image: "https://placehold.co/350x200/EEE/31343C0",
+        },
+        {
+          id: 2,
+          title: "Nature Reserve App",
+          description:
+            "This project was created with React.js. It is a chat app that displays messages, users and images.",
+          image: "https://placehold.co/350x200/EEE/31343C0",
+        },
+        {
+          id: 3,
+          title: "Movie Review App",
+          description:
+            "This project was created with Angular.js. It is a movie review app that displays movies, reviews and images.",
+          image: "https://placehold.co/350x200/EEE/31343C0",
         },
       ],
     };

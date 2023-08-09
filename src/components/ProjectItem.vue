@@ -16,7 +16,7 @@ export default {
         return {
           id: 0,
           title: "Project Name",
-          description: "Description of the Project",
+          description: "Description of the project",
           image: "https://placehold.co/EEE/31343C0",
         };
       },
@@ -32,8 +32,8 @@ export default {
 
 <style lang="scss">
 .project {
-  background-color: rgb(104, 104, 104);
-  color: white;
+  background-color: rgb(4, 73, 25);
+  color: rgb(248, 248, 248);
   padding: 25px 50px 50px;
   margin-bottom: 50px;
 }
