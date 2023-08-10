@@ -7,14 +7,17 @@
     @unlikeProject="unlikeProject"
   ></FavouritesList>
 
-  <h2>POPULAR PROJECTS</h2>
+  <h2>Projects liked</h2>
   <div v-for="project in projectsLikedList" :key="project">
     {{ project != null ? projects[parseInt(project) - 1].title : "" }}
   </div>
+
+  <AddProject @addProject="addProject"></AddProject>
 </template>
 
 <script>
 import FavouritesList from "./components/FavouritesList.vue";
+import AddProject from "./components/AddProject.vue";
 
 export default {
   name: "App",
@@ -27,28 +30,29 @@ export default {
           title: "Profile App",
           description:
             "This project was created with Vue.js. It is a portfolio app that displays projects, description and image.",
-          image: "https://placehold.co/350x200/FF00FF/FFF",
+          image: "https://placehold.co/350x200/FF00FF/FFF?text=Vue.js",
         },
-        {
-          id: 2,
-          title: "Nature Reserve App",
-          description:
-            "This project was created with React.js. It is a chat app that displays messages, users and images.",
-          image: "https://placehold.co/350x200/FF00FF/FFF",
-        },
-        {
-          id: 3,
-          title: "Movie Review App",
-          description:
-            "This project was created with Angular.js. It is a movie review app that displays movies, reviews and images.",
-          image: "https://placehold.co/350x200/FF00FF/FFF",
-        },
+        // {
+        //   id: 2,
+        //   title: "Nature Reserve App",
+        //   description:
+        //     "This project was created with React.js. It is a chat app that displays messages, users and images.",
+        //   image: "https://placehold.co/350x200/FF00FF/FFF?text=React.js",
+        // },
+        // {
+        //   id: 3,
+        //   title: "Movie Review App",
+        //   description:
+        //     "This project was created with Angular.js. It is a movie review app that displays movies, reviews and images.",
+        //   image: "https://placehold.co/350x200/FF00FF/FFF?text=Angular.js",
+        // },
       ],
     };
   },
 
   components: {
     FavouritesList,
+    AddProject,
   },
 
   methods: {
@@ -68,18 +72,36 @@ export default {
   text-align: center;
   margin: 0 auto;
 
+  h2 {
+    text-transform: uppercase;
+  }
+
+  button {
+    display: block;
+    margin: 25px auto;
+  }
+
   .project {
+    background-color: #f3f3f3;
     border: 1px solid #ccc;
     margin: 0 0 25px;
+    padding: 25px;
+
+    &:hover {
+      box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
+    }
+
+    h3 {
+      color: rgb(61, 2, 95);
+    }
 
     button {
       display: block;
       background-color: rgb(61, 2, 95);
       color: rgb(255, 255, 255);
       border: none;
+      padding: 10px 25px;
       border-radius: 25px;
-      padding: 10px 50px;
-      margin: 25px auto;
 
       &:hover {
         background-color: rgb(114, 114, 114);
@@ -88,6 +110,23 @@ export default {
 
     .unlike {
       background-color: rgb(231, 231, 231);
+    }
+  }
+
+  form {
+    background-color: #f5f5f5;
+    padding: 40px 25px 25px;
+
+    input {
+      display: block;
+      margin: 0 auto 25px;
+      width: 50%;
+    }
+
+    textarea {
+      display: block;
+      margin: 0 auto;
+      width: 100%;
     }
   }
 }

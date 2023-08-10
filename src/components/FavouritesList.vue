@@ -1,5 +1,5 @@
 <template>
-  <h2>PROJECTS</h2>
+  <h2>Projects</h2>
   <div>
     <ProjectItem
       v-for="project in projects"

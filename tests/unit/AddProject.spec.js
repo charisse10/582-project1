@@ -1,10 +1,13 @@
-// import { shallowMount } from "@vue/test-utils";
-// import AddProject from "@/components/AddProject.vue";
+import { shallowMount } from "@vue/test-utils";
+import AddProject from "@/components/AddProject.vue";
 
 describe("FavouritesList.vue", () => {
-  it("shows the text/image being upload before submit", () => {});
+  it("display form when being passed", () => {
+    const wrapper = shallowMount(AddProject);
+    expect(wrapper.find("h2").text()).toBe("Add project");
+  });
 
-  it("clears the text/image field after submit", () => {});
+  it("clears the text field after submit", () => {});
 
   it("shows the error message when required fields are empty", () => {});
 
