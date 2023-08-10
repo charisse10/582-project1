@@ -66,7 +66,45 @@ export default {
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   text-align: center;
-  max-width: 90%;
   margin: 0 auto;
+
+  .project {
+    border: 1px solid #ccc;
+    margin: 0 0 25px;
+
+    button {
+      display: block;
+      background-color: rgb(61, 2, 95);
+      color: rgb(255, 255, 255);
+      border: none;
+      border-radius: 25px;
+      padding: 10px 50px;
+      margin: 25px auto;
+
+      &:hover {
+        background-color: rgb(114, 114, 114);
+      }
+    }
+
+    .unlike {
+      background-color: rgb(231, 231, 231);
+    }
+  }
 }
+
+@media (min-width: 768px) {
+  #app {
+    max-width: 90%;
+  }
+}
+
+// @media (min-width: 992px) {
+//   #app {
+//   }
+// }
+
+// @media (min-width: 1200px) {
+//   #app {
+//   }
+// }
 </style>

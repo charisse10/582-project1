@@ -17,12 +17,10 @@ describe("ProjectItem.vue", () => {
     expect(wrapper.find("img").attributes("src")).toBe(project.image);
   });
 
-
   it('displays "Like" button when project is not liked', () => {
     const wrapper = shallowMount(ProjectItem);
     expect(wrapper.find("button").text()).toContain("Like");
   });
-
 
   it("emits likeProject event when Like button is clicked", () => {
     const project = {
@@ -40,14 +38,12 @@ describe("ProjectItem.vue", () => {
     expect(wrapper.emitted().likeProject[0]).toEqual([project.id]);
   });
 
-
   it('displays "Unlike" button when project is liked', async () => {
     const wrapper = shallowMount(ProjectItem);
     await wrapper.find("button").trigger("click");
     expect(wrapper.vm.isLiked).toBeTruthy();
     expect(wrapper.find("button").exists()).toBe(true);
   });
-
 
   it("emits unlikeProject event when Unlike button is clicked", async () => {
     const project = {
@@ -67,7 +63,6 @@ describe("ProjectItem.vue", () => {
     expect(wrapper.emitted().unlikeProject[0]).toEqual([project.id]);
   });
 
-
   it("emits add to favourites event when like button is clicked", async () => {
     const project = {
       id: 0,
@@ -83,7 +78,5 @@ describe("ProjectItem.vue", () => {
     expect(wrapper.emitted().addToFavourites[0]).toEqual([project.id]);
   });
 
-  it("emits remove from favourites event when dislike button is clicked", () => {
-
-  });
+  it("emits remove from favourites event when dislike button is clicked", () => {});
 });

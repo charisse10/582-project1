@@ -44,25 +44,4 @@ export default {
 };
 </script>
 
-<style lang="scss">
-.project {
-  // background-color: rgb(4, 73, 25);
-  color: rgb(153, 153, 153);
-  padding: 25px 50px 50px;
-  margin-bottom: 25px;
-}
-
-button {
-  display: block;
-  background-color: rgb(3, 138, 43);
-  color: rgb(255, 255, 255);
-  border: none;
-  border-radius: 25px;
-  padding: 10px 50px;
-  margin: 25px auto;
-}
-
-.unlike {
-  background-color: rgb(231, 231, 231);
-}
-</style>
+<style lang="scss"></style>
