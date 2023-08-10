@@ -20,7 +20,7 @@ export default {
           id: 0,
           title: "Project Name",
           description: "Description of the project",
-          image: "https://placehold.co/EEE/31343C0",
+          image: "https://placehold.co/EEE/355E3B",
         };
       },
     },
