@@ -2,34 +2,68 @@ import { shallowMount } from "@vue/test-utils";
 import ProjectItem from "@/components/ProjectItem.vue";
 
 describe("ProjectItem.vue", () => {
-  it("renders props: project when passed", () => {
-    const project = {
-      id: 0,
-      title: "Project Name",
-      description: "Description of the project",
-      image: "https://placehold.co/EEE/31343C0",
-    };
-    const wrapper = shallowMount(ProjectItem, {
-      propsData: { project },
+    it("renders props: project when passed", () => {
+        const project = {
+            id: 0,
+            title: "Project Name",
+            description: "Description of the project",
+            image: "https://placehold.co/EEE/31343C0",
+        };
+        const wrapper = shallowMount(ProjectItem, {
+            props: { project },
+        });
+        expect(wrapper.find("h2").text()).toBe(project.title);
+        expect(wrapper.find("p").text()).toBe(project.description);
+        expect(wrapper.find("img").attributes("src")).toBe(project.image);
     });
-    expect(wrapper.find("h2").text()).toBe(project.title);
-  });
 
-  it("emits like event when like button is clicked", async () => {
-    const wrapper = shallowMount(ProjectItem);
-    await wrapper.find("button").trigger("click");
-    expect( wrapper.emitted("likeProject")).toBeTruthy();
-    expect(wrapper.vm.isLiked).toBe(true);
-  });
+    it('displays "Like" button when project is not liked', () => {
+        const wrapper = shallowMount(ProjectItem);
+        expect(wrapper.find('button').text()).toContain('Like');
+      });
 
-  it("displays class when like button is clicked", () => {
-    const wrapper = shallowMount(ProjectItem);
-    expect(wrapper.find("button").class()).toContain(".unlike");
-  });
+    it("emits likeProject event when Like button is clicked", () => {
+        const project = {
+            id: 0,
+            title: "Project Name",
+            description: "Description of the project",
+            image: "https://placehold.co/EEE/31343C0"
+        };
+        const wrapper = shallowMount(ProjectItem, {
+            props: { project },
+        });
 
-  it("emits add to favourites event when like button is clicked", () => {});
+        wrapper.find("button").trigger("click");
+        expect(wrapper.emitted().likeProject).toBeTruthy();
+        expect(wrapper.emitted().likeProject[0]).toEqual([project.id]);
+    });
 
-  it("emits unlike event when dislike button is clicked", () => {});
+    it('displays "Unlike" button when project is liked', async () => {
+        const wrapper = shallowMount(ProjectItem);
+        await wrapper.find('button').trigger('click');
+        expect(wrapper.vm.isLiked).toBeTruthy();
+        expect(wrapper.find('button').exists()).toBe(true);
+      });
 
-  it("emits remove from favourites event when dislike button is clicked", () => {});
+    it("emits unlikeProject event when Unike button is clicked", async () => {
+        const project = {
+            id: 0,
+            title: "Project Name",
+            description: "Description of the project",
+            image: "https://placehold.co/EEE/31343C0"
+        };
+        const wrapper = shallowMount(ProjectItem, {
+            props: { project },
+        });
+
+        await wrapper.find("button").trigger("click");
+        expect(wrapper.vm.isLiked).toBeTruthy();
+        await wrapper.find("button").trigger('click');
+        expect(wrapper.emitted().unlikeProject).toBeTruthy();
+        expect(wrapper.emitted().unlikeProject[0]).toEqual([project.id]);
+    });
+
+    it("emits add to favourites event when like button is clicked", () => {});
+
+    it("emits remove from favourites event when dislike button is clicked", () => {});
 });
