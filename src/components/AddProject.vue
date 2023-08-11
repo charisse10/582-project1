@@ -1,11 +1,10 @@
 <template>
   <h2>Add project</h2>
-  <h3 v-if="showOutput">{{ titleInput }}</h3>
-  <p v-if="showOutput">{{ descriptionInput }}</p>
-  <!-- <h3>{{ addProject.title }}</h3>
-  <p>{{ aadProject.description }}</p> -->
+  <h3>{{ titleInput }}</h3>
+  <p>{{ descriptionInput }}</p>
+  <!-- <img :src="project.image" alt="Project Image" /> -->
 
-  <form @submit.prevent="submitProject" action="">
+  <form @submit.prevent="saveNewProject" action="">
     <label for="">Title</label>
     <input type="text" v-model="titleInput" />
     <label for="">Description</label>
@@ -16,47 +15,32 @@
       rows="10"
       v-model="descriptionInput"
     ></textarea>
-    <!-- <input type="file" name="fileToUpload" id="fileToUpload" /> -->
-    <button @click="saveProject">Save project</button>
+    <input class="add" type="submit" value="save project" />
   </form>
 </template>
 
 <script>
 export default {
   name: "AddProject",
-  // props: {
-  //   addProject: {
-  //     type: Object,
-  //     default() {
-  //       return {
-  //         title: "Project Name",
-  //         description: "Description of the project",
-  //       };
-  //     },
-  //   },
-  // },
-
   data() {
     return {
+      newProject: [],
+      obj: {},
       titleInput: "",
       descriptionInput: "",
-      showOutput: false,
+      // imageInput: "",
     };
   },
+
   methods: {
-    saveProject() {
-      const projectObj = {
-        title: this.titleInput,
-        description: this.descriptionInput,
-      };
-      this.$emit("addProjectObj", projectObj);
-      this.titleText = "";
-      this.descriptionText = "";
-      this.showOutput = true;
+    saveNewProject() {
+      this.obj["id"] = this.id;
+      this.obj["title"] = this.titleInput;
+      this.obj["description"] = this.descriptionInput;
+      // this.obj["image"] = this.imageInput;
+      this.$emit("addProject", this.obj);
     },
   },
-
-  computed: {},
 };
 </script>
 

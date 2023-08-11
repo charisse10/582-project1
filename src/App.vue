@@ -17,7 +17,7 @@
   </section>
 
   <section class="add">
-    <AddProject @addProjectObj="addProjectObj"></AddProject>
+    <AddProject></AddProject>
   </section>
 </template>
 
@@ -30,7 +30,6 @@ export default {
   data() {
     return {
       projectsLikedList: [],
-      savedProjects: [],
       projects: [
         {
           id: 1,
@@ -90,10 +89,6 @@ export default {
     unlikeProject(id) {
       this.projectsLikedList[id] = null;
     },
-  },
-
-  addProjectObj(project) {
-    this.savedProjects.push(project);
   },
 };
 </script>
@@ -168,9 +163,16 @@ export default {
 
     textarea {
       display: block;
-      margin: 0 auto;
+      margin: 0 auto 25px;
       width: 90%;
       padding: 10px;
+    }
+
+    .add {
+      display: block;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
     }
   }
 }
