@@ -4,10 +4,23 @@
 ## Project Features
 
 ### I. DISPLAY
+#### A. Projects Liked
+```
+1. List of project titles
+
+```
+#### B. Projects
 ```
 1. Project title
 2. Description of the project
 3. Featured image of the project
+4. Like and Unlike buttons
+5. Number of likes
+
+```
+#### C. Add Project
+```
+1. Form (a) title input (b) description input (c) image input?
 
 ```
 ### II. CUSTOMIZATION
@@ -15,13 +28,8 @@
 1. Liking and undoing the like
 2. Sending the liked project/projects to a separate component called Favourites
 3. Removing the liked project/projects from the Favourites component
+4. Counting the number of times when the like butoon is clicked: (a) 0 shows nothing, (b) 1 would show "1 like", and (c) 2 or more shows "2 likes".
 ```
-
-### III. PUBLISH
-```
-
-```
-
 
 ## Project setup
 ```

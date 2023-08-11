@@ -2,6 +2,8 @@
   <h2>Add project</h2>
   <h3 v-if="showOutput">{{ titleInput }}</h3>
   <p v-if="showOutput">{{ descriptionInput }}</p>
+  <!-- <h3>{{ addProject.title }}</h3>
+  <p>{{ aadProject.description }}</p> -->
 
   <form @submit.prevent="submitProject" action="">
     <label for="">Title</label>
@@ -22,6 +24,18 @@
 <script>
 export default {
   name: "AddProject",
+  // props: {
+  //   addProject: {
+  //     type: Object,
+  //     default() {
+  //       return {
+  //         title: "Project Name",
+  //         description: "Description of the project",
+  //       };
+  //     },
+  //   },
+  // },
+
   data() {
     return {
       titleInput: "",
@@ -41,6 +55,8 @@ export default {
       this.showOutput = true;
     },
   },
+
+  computed: {},
 };
 </script>
 
