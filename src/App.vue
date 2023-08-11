@@ -1,18 +1,24 @@
 <template>
   <h1>Portfolio App</h1>
 
-  <FavouritesList
-    :projects="projects"
-    @likeProject="likeProject"
-    @unlikeProject="unlikeProject"
-  ></FavouritesList>
+  <section class="liked">
+    <h2>Liked projects</h2>
+    <div v-for="project in projectsLikedList" :key="project">
+      {{ project != null ? projects[parseInt(project) - 1].title : "" }}
+    </div>
+  </section>
 
-  <h2>Projects liked</h2>
-  <div v-for="project in projectsLikedList" :key="project">
-    {{ project != null ? projects[parseInt(project) - 1].title : "" }}
-  </div>
+  <section class="projects">
+    <FavouritesList
+      :projects="projects"
+      @likeProject="likeProject"
+      @unlikeProject="unlikeProject"
+    ></FavouritesList>
+  </section>
 
-  <AddProject @addProject="addProject"></AddProject>
+  <section class="add">
+    <AddProject @addProjectObj="addProjectObj"></AddProject>
+  </section>
 </template>
 
 <script>
@@ -24,27 +30,49 @@ export default {
   data() {
     return {
       projectsLikedList: [],
+      savedProjects: [],
       projects: [
         {
           id: 1,
           title: "Profile App",
           description:
             "This project was created with Vue.js. It is a portfolio app that displays projects, description and image.",
-          image: "https://placehold.co/350x200/FF00FF/FFF?text=Vue.js",
+          image: "https://placehold.co/300x200/FF00FF/FFF?text=Vue.js",
         },
-        // {
-        //   id: 2,
-        //   title: "Nature Reserve App",
-        //   description:
-        //     "This project was created with React.js. It is a chat app that displays messages, users and images.",
-        //   image: "https://placehold.co/350x200/FF00FF/FFF?text=React.js",
-        // },
+        {
+          id: 2,
+          title: "Nature Reserve App",
+          description:
+            "This project was created with React.js. It is a chat app that displays messages, users and images.",
+          image: "https://placehold.co/300x200/FF00FF/FFF?text=React.js",
+        },
         // {
         //   id: 3,
         //   title: "Movie Review App",
         //   description:
         //     "This project was created with Angular.js. It is a movie review app that displays movies, reviews and images.",
-        //   image: "https://placehold.co/350x200/FF00FF/FFF?text=Angular.js",
+        //   image: "https://placehold.co/300x200/FF00FF/FFF?text=Angular.js",
+        // },
+        // {
+        //   id: 4,
+        //   title: "Social Media App",
+        //   description:
+        //     "This project was created with Vue.js. It is a social media app that displays posts, comments and images.",
+        //   image: "https://placehold.co/300x200/FF00FF/FFF?text=Vue.js",
+        // },
+        // {
+        //   id: 5,
+        //   title: "E-commerce App",
+        //   description:
+        //     "This project was created with React.js. It is an e-commerce app that displays products, prices and images.",
+        //   image: "https://placehold.co/300x200/FF00FF/FFF?text=React.js",
+        // },
+        // {
+        //   id: 6,
+        //   title: "Blog App",
+        //   description:
+        //     "This project was created with Angular.js. It is a blog app that displays posts, comments and images.",
+        //   image: "https://placehold.co/300x200/FF00FF/FFF?text=Angular.js",
         // },
       ],
     };
@@ -63,6 +91,10 @@ export default {
       this.projectsLikedList[id] = null;
     },
   },
+
+  addProjectObj(project) {
+    this.savedProjects.push(project);
+  },
 };
 </script>
 
@@ -71,6 +103,7 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   text-align: center;
   margin: 0 auto;
+  max-width: 90%;
 
   h2 {
     text-transform: uppercase;
@@ -81,35 +114,44 @@ export default {
     margin: 25px auto;
   }
 
-  .project {
-    background-color: #f3f3f3;
-    border: 1px solid #ccc;
-    margin: 0 0 25px;
-    padding: 25px;
+  .liked {
+    border: 1px solid #db0909;
+    min-height: 200px;
+  }
 
-    &:hover {
-      box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
-    }
+  .projects {
+    padding: 50px 0;
 
-    h3 {
-      color: rgb(61, 2, 95);
-    }
-
-    button {
-      display: block;
-      background-color: rgb(61, 2, 95);
-      color: rgb(255, 255, 255);
-      border: none;
-      padding: 10px 25px;
-      border-radius: 25px;
+    .project {
+      background-color: #f3f3f3;
+      border: 1px solid #ccc;
+      margin: 0 auto 25px;
+      padding: 25px;
 
       &:hover {
-        background-color: rgb(114, 114, 114);
+        box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
       }
-    }
 
-    .unlike {
-      background-color: rgb(231, 231, 231);
+      h3 {
+        color: rgb(61, 2, 95);
+      }
+
+      button {
+        display: block;
+        background-color: rgb(61, 2, 95);
+        color: rgb(255, 255, 255);
+        border: none;
+        padding: 10px 25px;
+        border-radius: 25px;
+
+        &:hover {
+          background-color: rgb(114, 114, 114);
+        }
+      }
+
+      .unlike {
+        background-color: rgb(231, 231, 231);
+      }
     }
   }
 
@@ -121,29 +163,24 @@ export default {
       display: block;
       margin: 0 auto 25px;
       width: 50%;
+      padding: 10px;
     }
 
     textarea {
       display: block;
       margin: 0 auto;
-      width: 100%;
+      width: 90%;
+      padding: 10px;
     }
   }
 }
 
 @media (min-width: 768px) {
-  #app {
-    max-width: 90%;
-  }
 }
 
-// @media (min-width: 992px) {
-//   #app {
-//   }
-// }
+@media (min-width: 992px) {
+}
 
-// @media (min-width: 1200px) {
-//   #app {
-//   }
-// }
+@media (min-width: 1200px) {
+}
 </style>

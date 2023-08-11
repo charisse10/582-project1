@@ -78,5 +78,7 @@ describe("ProjectItem.vue", () => {
     expect(wrapper.emitted().addToFavourites[0]).toEqual([project.id]);
   });
 
-  it("emits remove from favourites event when dislike button is clicked", () => {});
+  it("emits remove from favourites event when dislike button is clicked", () => { });
+  
+  it("counts the number of likes when liked button is clicked", () => { });
 });

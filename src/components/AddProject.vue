@@ -1,13 +1,16 @@
 <template>
+  <h2>Add project</h2>
+  <h3 v-if="showOutput">{{ titleInput }}</h3>
+  <p v-if="showOutput">{{ descriptionInput }}</p>
+
   <form @submit.prevent="submitProject" action="">
-    <h2>Add project</h2>
     <label for="">Title</label>
     <input type="text" v-model="titleInput" />
     <label for="">Description</label>
     <textarea
       name=""
       id=""
-      cols="30"
+      cols="25"
       rows="10"
       v-model="descriptionInput"
     ></textarea>
@@ -20,11 +23,23 @@ export default {
   name: "AddProject",
   data() {
     return {
-      title: "",
-      description: "",
+      titleInput: "",
+      descriptionInput: "",
+      showOutput: false,
     };
   },
-  methods: {},
+  methods: {
+    saveProject() {
+      const projectObj = {
+        title: this.titleInput,
+        description: this.descriptionInput,
+      };
+      this.$emit("addProjectObj", projectObj);
+      //   this.titleText = "";
+      //   this.descriptionText = "";
+      //   this.showOutput = true;
+    },
+  },
 };
 </script>
 
