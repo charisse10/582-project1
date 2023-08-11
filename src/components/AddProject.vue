@@ -14,6 +14,7 @@
       rows="10"
       v-model="descriptionInput"
     ></textarea>
+    <!-- <input type="file" name="fileToUpload" id="fileToUpload" /> -->
     <button @click="saveProject">Save project</button>
   </form>
 </template>
@@ -35,9 +36,9 @@ export default {
         description: this.descriptionInput,
       };
       this.$emit("addProjectObj", projectObj);
-      //   this.titleText = "";
-      //   this.descriptionText = "";
-      //   this.showOutput = true;
+      this.titleText = "";
+      this.descriptionText = "";
+      this.showOutput = true;
     },
   },
 };
