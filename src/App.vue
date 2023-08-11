@@ -17,7 +17,7 @@
   </section>
 
   <section class="add">
-    <AddProject></AddProject>
+    <AddProject @saveNewProject="pushProject"></AddProject>
   </section>
 </template>
 
@@ -88,6 +88,11 @@ export default {
     },
     unlikeProject(id) {
       this.projectsLikedList[id] = null;
+    },
+
+    pushProject(obj) {
+      this.projects.push(obj);
+      console.log("received: ", this.obj);
     },
   },
 };
