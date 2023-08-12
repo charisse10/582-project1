@@ -1,13 +1,10 @@
 <template>
   <h2>Add project</h2>
-  <!-- <h3>{{ titleInput }}</h3>
-  <p>{{ descriptionInput }}</p>
-  <img :src="imageInput" alt="Project Image" /> -->
 
   <form @submit.prevent="saveNewProject" action="">
-    <label for="">Title</label>
-    <input type="text" v-model="titleInput" />
-    <label for="">Description</label>
+    <label for="title">Title</label>
+    <input type="text" v-model="titleInput" required />
+    <label for="description">Description</label>
     <textarea
       name=""
       id=""
@@ -15,9 +12,13 @@
       rows="10"
       v-model="descriptionInput"
     ></textarea>
-    <!-- <input type="text" v-model="imageInput" /> -->
+    <input type="text" v-model="imageInput" required />
     <input class="add" type="submit" value="save project" />
   </form>
+
+  <h3>{{ titleInput }}</h3>
+  <p>{{ descriptionInput }}</p>
+  <p>{{ imageInput }}</p>
 </template>
 
 <script>
@@ -34,15 +35,20 @@ export default {
   },
 
   methods: {
-    saveProject() {
-      const projectObj = {
+    saveNewProject() {
+      const newProject = {
+        id: this.id,
         title: this.titleInput,
         description: this.descriptionInput,
+        image: this.imageInput,
       };
-      this.$emit("addProjectObj", projectObj);
-      this.titleText = "";
-      this.descriptionText = "";
-      this.showOutput = true;
+
+      this.id++;
+      this.$emit("addProject", newProject);
+
+      this.titleInput = "";
+      this.descriptionInput = "";
+      this.imageInput = "";
     },
   },
 };

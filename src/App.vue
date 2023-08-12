@@ -17,7 +17,7 @@
   </section>
 
   <section class="add">
-    <AddProject @saveNewProject="pushProject"></AddProject>
+    <AddProject @addProject="addProject"></AddProject>
   </section>
 </template>
 
@@ -90,9 +90,9 @@ export default {
       this.projectsLikedList[id] = null;
     },
 
-    pushProject(obj) {
-      this.projects.push(obj);
-      console.log("received: ", this.obj);
+    addProject(newProject) {
+      this.projects.push(newProject);
+      console.log("added:", this.projects);
     },
   },
 };
