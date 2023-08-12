@@ -15,10 +15,6 @@
     <input type="text" v-model="imageInput" required />
     <input class="add" type="submit" value="save project" />
   </form>
-
-  <h3>{{ titleInput }}</h3>
-  <p>{{ descriptionInput }}</p>
-  <p>{{ imageInput }}</p>
 </template>
 
 <script>
@@ -26,7 +22,6 @@ export default {
   name: "AddProject",
   data() {
     return {
-      obj: {},
       id: 7,
       titleInput: "",
       descriptionInput: "",
@@ -49,6 +44,10 @@ export default {
       this.titleInput = "";
       this.descriptionInput = "";
       this.imageInput = "";
+    },
+
+    deleteAddedProject() {
+      this.$emit("deleteAddedProject", this.id);
     },
   },
 };

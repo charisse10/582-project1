@@ -85,7 +85,9 @@ export default {
   methods: {
     likeProject(id) {
       this.projectsLikedList[id] = id;
+      console.log("https://placehold.co/300x200/FF00FF/FFF?text=Vue.js");
     },
+
     unlikeProject(id) {
       this.projectsLikedList[id] = null;
     },
