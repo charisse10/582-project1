@@ -12,7 +12,12 @@
       rows="10"
       v-model="descriptionInput"
     ></textarea>
-    <input type="text" v-model="imageInput" required />
+    <input
+      type="text"
+      v-model="imageInput"
+      placeholder="https://placehold.co/275x200/FF00FF/FFF?text=Vue.js"
+      required
+    />
     <input class="add" type="submit" value="save project" />
   </form>
 </template>

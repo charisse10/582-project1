@@ -1,6 +1,5 @@
 <template>
-  <h2>Projects</h2>
-  <div>
+  <div class="projects-flex">
     <ProjectItem
       v-for="project in projects"
       :project="project"
