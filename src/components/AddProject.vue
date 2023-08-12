@@ -34,7 +34,6 @@ export default {
   },
 
   methods: {
-<<<<<<< HEAD
     saveProject() {
       const projectObj = {
         title: this.titleInput,
@@ -44,16 +43,6 @@ export default {
       this.titleText = "";
       this.descriptionText = "";
       this.showOutput = true;
-=======
-    saveNewProject() {
-      this.obj["id"] = this.id;
-      this.id++;
-      this.obj["title"] = this.titleInput;
-      this.obj["description"] = this.descriptionInput;
-      this.obj["image"] = this.imageInput;
-      this.$emit("addProject", this.obj);
-      console.log("sent ", this.obj);
->>>>>>> 58ee8d15e6a29f8979329fb0ac84ac3fa782635c
     },
   },
 };

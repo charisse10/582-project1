@@ -1,7 +1,7 @@
 <template>
   <h1>Portfolio App</h1>
 
-  <section class="liked">
+  <section class="liked-projects">
     <h2>Liked projects</h2>
     <div v-for="project in projectsLikedList" :key="project">
       {{ project != null ? projects[parseInt(project) - 1].title : "" }}
@@ -118,16 +118,17 @@ export default {
 
   button {
     display: block;
-    margin: 25px auto;
+    margin: 15px auto 0;
   }
 
-  .liked {
-    border: 1px solid #db0909;
-    min-height: 200px;
+  .liked-projects {
+    border: 1px solid $purple;
+    min-height: 100px;
+    padding: 0 25px 25px;
   }
 
   .projects {
-    padding: 50px 0;
+    padding: 25px 0;
 
     .project {
       background-color: #f3f3f3;
@@ -136,7 +137,7 @@ export default {
       padding: 25px;
 
       &:hover {
-        box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
+        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
       }
 
       h3 {
@@ -144,26 +145,27 @@ export default {
       }
 
       button {
+        text-transform: uppercase;
+        border: 2px solid $purple;
         display: block;
-        background-color: $purple;
-        color: rgb(255, 255, 255);
-        border: none;
-        padding: 10px 25px;
+        padding: 10px 35px;
         border-radius: 25px;
 
         &:hover {
-          background-color: rgb(114, 114, 114);
+          background-color: rgb(251, 229, 253);
+          color: black;
         }
       }
 
       .unlike {
-        background-color: rgb(231, 231, 231);
+        background-color: $purple;
+        color: #fff;
       }
     }
   }
 
   form {
-    background-color: #f5f5f5;
+    border: 1px solid $purple;
     padding: 40px 25px 25px;
 
     input {
