@@ -37,14 +37,14 @@ export default {
           title: "Profile App",
           description:
             "This project was created with Vue.js. It is a portfolio app that displays projects, description and image.",
-          image: "https://placehold.co/300x200/FF00FF/FFF?text=Vue.js",
+          image: "https://placehold.co/275x200/FF00FF/FFF?text=Vue.js",
         },
         {
           id: 2,
           title: "Nature Reserve App",
           description:
             "This project was created with React.js. It is a chat app that displays messages, users and images.",
-          image: "https://placehold.co/300x200/FF00FF/FFF?text=React.js",
+          image: "https://placehold.co/275x200/FF00FF/FFF?text=React.js",
         },
         // {
         //   id: 3,
@@ -105,6 +105,13 @@ export default {
   margin: 0 auto;
   max-width: 90%;
 
+  $purple: rgb(61, 2, 95);
+
+  h1 {
+    color: $purple;
+    font-size: 3em;
+  }
+
   h2 {
     text-transform: uppercase;
   }
@@ -133,12 +140,12 @@ export default {
       }
 
       h3 {
-        color: rgb(61, 2, 95);
+        color: $purple;
       }
 
       button {
         display: block;
-        background-color: rgb(61, 2, 95);
+        background-color: $purple;
         color: rgb(255, 255, 255);
         border: none;
         padding: 10px 25px;

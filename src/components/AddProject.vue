@@ -35,9 +35,9 @@ export default {
         description: this.descriptionInput,
       };
       this.$emit("addProjectObj", projectObj);
-      //   this.titleText = "";
-      //   this.descriptionText = "";
-      //   this.showOutput = true;
+      this.titleText = "";
+      this.descriptionText = "";
+      this.showOutput = true;
     },
   },
 };
