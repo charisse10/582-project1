@@ -1,7 +1,9 @@
 <template>
   <header>
-    <h1>Portfolio App</h1>
+    <img src="./assets/hw.svg" alt="" />
+    <h1>Hello World</h1>
   </header>
+
   <main>
     <section class="projects">
       <h2>Projects</h2>
@@ -26,6 +28,8 @@
       </section>
     </div>
   </main>
+
+  <footer>Copyright @ Hello World</footer>
 </template>
 
 <script>
@@ -43,42 +47,48 @@ export default {
           title: "Profile App",
           description:
             "This project was created with Vue.js. It is a portfolio app that displays projects, description and image.",
-          image: "https://placehold.co/275x200/FF00FF/FFF?text=Vue.js",
+          image:
+            "https://images.pexels.com/photos/192273/pexels-photo-192273.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
         },
         {
           id: 2,
           title: "Nature Reserve App",
           description:
             "This project was created with React.js. It is a chat app that displays messages, users and images.",
-          image: "https://placehold.co/275x200/FF00FF/FFF?text=React.js",
+          image:
+            "https://images.pexels.com/photos/248526/pexels-photo-248526.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
         },
         {
           id: 3,
           title: "Movie Review App",
           description:
             "This project was created with Angular.js. It is a movie review app that displays movies, reviews and images.",
-          image: "https://placehold.co/300x200/FF00FF/FFF?text=Angular.js",
+          image:
+            "https://images.pexels.com/photos/163066/desk-terminplanung-control-newsletter-163066.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
         },
         {
           id: 4,
           title: "Social Media App",
           description:
             "This project was created with Vue.js. It is a social media app that displays posts, comments and images.",
-          image: "https://placehold.co/300x200/FF00FF/FFF?text=Vue.js",
+          image:
+            "https://images.pexels.com/photos/5077049/pexels-photo-5077049.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
         },
         {
           id: 5,
           title: "E-commerce App",
           description:
             "This project was created with React.js. It is an e-commerce app that displays products, prices and images.",
-          image: "https://placehold.co/300x200/FF00FF/FFF?text=React.js",
+          image:
+            "https://images.pexels.com/photos/246658/pexels-photo-246658.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
         },
         {
           id: 6,
           title: "Blog App",
           description:
             "This project was created with Angular.js. It is a blog app that displays posts, comments and images.",
-          image: "https://placehold.co/300x200/FF00FF/FFF?text=Angular.js",
+          image:
+            "https://images.pexels.com/photos/5424636/pexels-photo-5424636.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
         },
       ],
     };
@@ -114,16 +124,23 @@ export default {
   box-sizing: border-box;
 }
 
+$purple: rgb(61, 2, 95);
+$yellow: rgb(251, 247, 153);
+$gray: #f3f3f3;
+
 #app {
   overflow: hidden;
   font-size: 16px;
   font-family: Avenir, Helvetica, Arial, sans-serif;
-  $purple: rgb(61, 2, 95);
 
   h2 {
-    font-size: 2rem;
+    font-size: 1.7rem;
     text-transform: uppercase;
     text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  p {
     margin-bottom: 1rem;
   }
 
@@ -139,26 +156,35 @@ export default {
   }
 
   header {
-    background-color: $purple;
+    background-color: $yellow;
     position: fixed;
     width: 100%;
     padding: 15px;
+    display: flex;
+    justify-content: center;
+
+    img {
+      width: 50px;
+      height: 50px;
+      margin-right: 15px;
+    }
 
     h1 {
-      color: #fff;
+      color: $purple;
       font-size: 2.5rem;
       text-align: center;
     }
   }
 
   main {
-    padding: 125px 25px 0;
+    padding: 0 50px;
     .projects {
+      margin: 125px 0 50px;
       .projects-flex {
         .project {
-          width: 90%;
+          width: 100%;
           margin: 0 auto 25px;
-          background-color: #f3f3f3;
+          background-color: $gray;
           text-align: center;
           padding: 25px;
 
@@ -167,13 +193,13 @@ export default {
           }
 
           h3 {
-            font-size: 1.7rem;
+            font-size: 1.5rem;
             color: $purple;
           }
 
           img {
             width: 90%;
-            margin: 0 auto;
+            margin: 0 auto 25px;
             transition: transform 1s ease;
 
             &:hover {
@@ -181,15 +207,19 @@ export default {
             }
           }
         }
+
         button {
+          font-size: 1.1rem;
           text-transform: uppercase;
+          font-weight: bold;
           border: 2px solid $purple;
           display: block;
           padding: 10px 35px;
           border-radius: 25px;
+          margin-bottom: 0.5rem;
 
           &:hover {
-            background-color: rgb(251, 229, 253);
+            background-color: $yellow;
             color: black;
           }
         }
@@ -201,48 +231,71 @@ export default {
       }
     }
 
-    .liked-projects {
-      border: 1px solid $purple;
-      min-height: 100px;
-      padding: 0 25px 25px;
-    }
+    .right {
+      .liked-projects {
+        color: $purple;
+        text-align: center;
+        min-height: 100px;
+        padding: 25px;
+        margin-bottom: 75px;
+        border-bottom: 1px solid $purple;
+        font-size: 1.2rem;
+        font-weight: bold;
 
-    form {
-      border: 1px solid $purple;
-      padding: 40px 25px 25px;
-
-      input {
-        display: block;
-        margin: 0 auto 25px;
-        width: 50%;
-        padding: 10px;
+        h2 {
+          color: #000;
+        }
       }
 
-      textarea {
-        display: block;
-        margin: 0 auto 25px;
-        width: 90%;
-        padding: 10px;
-      }
+      form {
+        background: $yellow;
+        border: 1px solid $purple;
+        padding: 40px 25px 25px;
+        text-align: center;
+        margin-bottom: 100px;
 
-      .add {
-        display: block;
-        border: none;
-        padding: 10px 15px;
-        border-radius: 5px;
+        label {
+          margin-bottom: 1rem;
+        }
+
+        input {
+          display: block;
+          margin: 0 auto 25px;
+          width: 50%;
+          padding: 10px;
+        }
+
+        textarea {
+          display: block;
+          margin: 0 auto 25px;
+          width: 90%;
+          padding: 10px;
+        }
+
+        .add {
+          background-color: $purple;
+          color: white;
+          text-transform: uppercase;
+          width: 150px;
+          border-radius: 5px;
+        }
       }
-    }
+    } //right
   } //main
+  footer {
+    background-color: $gray;
+    text-align: center;
+    padding: 25px 0;
+  }
 } //app
 
 @media only screen and (min-width: 768px) {
   #app {
     main {
       display: flex;
-      gap: 50px;
 
       .projects {
-        width: 65%;
+        width: 50%;
 
         .projects-flex {
           display: flex;
@@ -250,14 +303,42 @@ export default {
           flex-wrap: wrap;
         } //projects-flex
       } //projects
+
       .right {
-        width: 35%;
+        width: 50%;
+        position: fixed;
+        height: 100vh;
+        right: 0;
+        top: 0;
+        z-index: 0;
+        padding: 100px 50px 0;
       }
     } //main
   } //app
 }
 
-@media (min-width: 992px) {
+@media only screen and (min-width: 1200px) {
+  #app {
+    main {
+      .projects {
+        width: 66.66%;
+
+        .projects-flex {
+          .project {
+            width: calc((100% / 2) - 25px);
+          } //project
+        } //projects-flex
+      } //projects
+
+      .right {
+        width: 33.33%;
+        padding: 100px 50px 0 25px;
+      }
+    } //main
+  } //app
+} //media
+
+@media only screen and (min-width: 1440px) {
   #app {
     main {
       .projects {
@@ -265,29 +346,13 @@ export default {
 
         .projects-flex {
           .project {
-            width: calc((100% / 2) - 25px);
-            margin: 25px 0;
-          } //project
-        } //projects-flex
-      } //projects
-      .right {
-        width: 25%;
-      }
-    } //main
-  } //app
-} //media
-
-@media (min-width: 1200px) {
-  #app {
-    main {
-      .projects {
-        .projects-flex {
-          .project {
             width: calc((100% / 3) - 25px);
           } //project
         } //projects-flex
       } //projects
+
       .right {
+        width: 25%;
       }
     } //main
   } //app
