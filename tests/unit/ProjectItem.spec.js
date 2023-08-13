@@ -17,7 +17,7 @@ describe("ProjectItem.vue", () => {
     expect(wrapper.find("img").attributes("src")).toBe(project.image);
   });
 
-  it('displays "Like" button when project is not liked', () => {
+  it('displays "Like" button when project is not yet clicked', () => {
     const wrapper = shallowMount(ProjectItem);
     expect(wrapper.find("button").text()).toContain("Like");
   });
@@ -63,7 +63,7 @@ describe("ProjectItem.vue", () => {
     expect(wrapper.emitted().unlikeProject[0]).toEqual([project.id]);
   });
 
-  it("emits add to favourites event when like button is clicked", async () => {
+  it("emits add to favourites event when like button is clicked", () => {
     const project = {
       id: 0,
       title: "Project Name",
@@ -73,7 +73,7 @@ describe("ProjectItem.vue", () => {
     const wrapper = shallowMount(ProjectItem, {
       props: { project },
     });
-    await wrapper.find("button").trigger("click");
+    wrapper.find("button").trigger("click");
     expect(wrapper.emitted().addToFavourites).toBeTruthy();
     expect(wrapper.emitted().addToFavourites[0]).toEqual([project.id]);
   });

@@ -15,21 +15,22 @@
         ></FavouritesList>
       </div>
     </section>
+
     <div class="right">
+      <section class="add">
+        <AddProject @addProject="addProject"></AddProject>
+      </section>
+
       <section class="liked-projects">
         <h2>Liked projects</h2>
         <div v-for="project in projectsLikedList" :key="project">
           {{ project != null ? projects[parseInt(project) - 1].title : "" }}
         </div>
       </section>
-
-      <section class="add">
-        <AddProject @addProject="addProject"></AddProject>
-      </section>
     </div>
   </main>
 
-  <footer>Copyright @ Hello World</footer>
+  <footer>Copyright 2023 © Hello World</footer>
 </template>
 
 <script>
@@ -90,6 +91,30 @@ export default {
           image:
             "https://images.pexels.com/photos/5424636/pexels-photo-5424636.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
         },
+        {
+          id: 7,
+          title: "Notetaking App",
+          description:
+            "This project was created with Vue.js. It is a portfolio app that displays projects, description and image.",
+          image:
+            "https://images.pexels.com/photos/38544/imac-apple-mockup-app-38544.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        },
+        {
+          id: 8,
+          title: "Daily Quotes App",
+          description:
+            "This project was created with React.js. It is a chat app that displays messages, users and images.",
+          image:
+            "https://images.pexels.com/photos/246684/pexels-photo-246684.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        },
+        {
+          id: 9,
+          title: "Recipe App",
+          description:
+            "This project was created with Angular.js. It is a movie review app that displays movies, reviews and images.",
+          image:
+            "https://images.pexels.com/photos/4348404/pexels-photo-4348404.jpeg?auto=compress&cs=tinysrgb&w=1600",
+        },
       ],
     };
   },
@@ -146,7 +171,7 @@ $gray: #f3f3f3;
 
   button {
     display: block;
-    margin: 1em auto 0;
+    margin: 15px auto 0;
   }
 
   img {
@@ -158,6 +183,7 @@ $gray: #f3f3f3;
   header {
     background-color: $yellow;
     position: fixed;
+    z-index: 2;
     width: 100%;
     padding: 15px;
     display: flex;
@@ -179,7 +205,7 @@ $gray: #f3f3f3;
   main {
     padding: 0 50px;
     .projects {
-      margin: 125px 0 50px;
+      margin: 150px 0 50px;
       .projects-flex {
         .project {
           width: 100%;
@@ -187,14 +213,17 @@ $gray: #f3f3f3;
           background-color: $gray;
           text-align: center;
           padding: 25px;
+          position: relative;
 
           &:hover {
             box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+            transition: 1s;
           }
 
           h3 {
             font-size: 1.5rem;
             color: $purple;
+            margin-bottom: 1rem;
           }
 
           img {
@@ -205,6 +234,20 @@ $gray: #f3f3f3;
             &:hover {
               transform: scale(110%);
             }
+          }
+
+          p {
+            padding-bottom: 75px;
+          }
+
+          .likes {
+            font-weight: bolder;
+            position: absolute;
+            bottom: -50px;
+            left: 0;
+            transform: translateX(40px);
+            font-size: 1.2rem;
+            color: $purple;
           }
         }
 
@@ -217,10 +260,15 @@ $gray: #f3f3f3;
           padding: 10px 35px;
           border-radius: 25px;
           margin-bottom: 0.5rem;
+          position: absolute;
+          bottom: 25px;
+          right: 0;
+          transform: translateX(-40px);
 
           &:hover {
             background-color: $yellow;
             color: black;
+            transition: 1s;
           }
         }
 
@@ -232,27 +280,12 @@ $gray: #f3f3f3;
     }
 
     .right {
-      .liked-projects {
-        color: $purple;
-        text-align: center;
-        min-height: 100px;
-        padding: 25px;
-        margin-bottom: 75px;
-        border-bottom: 1px solid $purple;
-        font-size: 1.2rem;
-        font-weight: bold;
-
-        h2 {
-          color: #000;
-        }
-      }
-
       form {
         background: $yellow;
         border: 1px solid $purple;
         padding: 40px 25px 25px;
         text-align: center;
-        margin-bottom: 100px;
+        margin-bottom: 50px;
 
         label {
           margin-bottom: 1rem;
@@ -263,6 +296,7 @@ $gray: #f3f3f3;
           margin: 0 auto 25px;
           width: 50%;
           padding: 10px;
+          border-radius: 10px;
         }
 
         textarea {
@@ -270,6 +304,7 @@ $gray: #f3f3f3;
           margin: 0 auto 25px;
           width: 90%;
           padding: 10px;
+          border-radius: 10px;
         }
 
         .add {
@@ -277,7 +312,24 @@ $gray: #f3f3f3;
           color: white;
           text-transform: uppercase;
           width: 150px;
-          border-radius: 5px;
+          border-radius: 10px;
+
+          &:hover {
+            background-color: black;
+            transition: 1s;
+          }
+        }
+      }
+      .liked-projects {
+        color: $purple;
+        text-align: center;
+        padding: 25px;
+        margin-bottom: 75px;
+        font-size: 1.2rem;
+        font-weight: bold;
+
+        h2 {
+          color: #000;
         }
       }
     } //right
@@ -299,7 +351,6 @@ $gray: #f3f3f3;
 
         .projects-flex {
           display: flex;
-          justify-content: space-between;
           flex-wrap: wrap;
         } //projects-flex
       } //projects
@@ -311,7 +362,7 @@ $gray: #f3f3f3;
         right: 0;
         top: 0;
         z-index: 0;
-        padding: 100px 50px 0;
+        padding: 150px 50px 0;
       }
     } //main
   } //app
@@ -332,7 +383,7 @@ $gray: #f3f3f3;
 
       .right {
         width: 33.33%;
-        padding: 100px 50px 0 25px;
+        padding: 150px 50px 0 25px;
       }
     } //main
   } //app

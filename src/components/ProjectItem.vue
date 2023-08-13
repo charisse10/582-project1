@@ -1,11 +1,11 @@
 <template>
   <div class="project">
     <h3>{{ project.title }}</h3>
-    <p>{{ project.description }}</p>
     <img :src="project.image" alt="Project Image" />
+    <p>{{ project.description }}</p>
+    <p class="likes">{{ likesNumber }}</p>
     <button v-if="!isLiked" @click="sendLike">Like</button>
     <button class="unlike" v-else @click="sendUnlike">Liked</button>
-    <p>{{ likesNumber }}</p>
   </div>
 </template>
 

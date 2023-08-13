@@ -22,7 +22,7 @@ export default {
   name: "AddProject",
   data() {
     return {
-      id: 7,
+      id: 10,
       titleInput: "",
       descriptionInput: "",
       imageInput: "",
@@ -44,10 +44,6 @@ export default {
       this.titleInput = "";
       this.descriptionInput = "";
       this.imageInput = "";
-    },
-
-    deleteAddedProject() {
-      this.$emit("deleteAddedProject", this.id);
     },
   },
 };
