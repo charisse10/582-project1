@@ -387,13 +387,7 @@ $gray: #f3f3f3;
 
       .projects {
         width: 50%;
-        margin-bottom: 125px;
-
-        .projects-flex {
-          .project {
-            margin-bottom: 50px;
-          } //project
-        } //projects-flex
+        margin-bottom: 25px;
       }
 
       .right {
