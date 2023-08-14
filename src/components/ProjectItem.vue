@@ -4,8 +4,9 @@
     <img :src="project.image" alt="Project Image" />
     <p>{{ project.description }}</p>
     <p class="likes">{{ likesNumber }}</p>
-    <button v-if="!isLiked" @click="sendLike">Like</button>
+    <button class="like" v-if="!isLiked" @click="sendLike">Like</button>
     <button class="unlike" v-else @click="sendUnlike">Liked</button>
+    <button class="delete" @click="deleteThisProject">x</button>
   </div>
 </template>
 
@@ -41,6 +42,10 @@ export default {
     sendUnlike() {
       this.$emit("unlikeProject", this.project.id);
       this.isLiked = false;
+      // this.likeCount--;
+    },
+    deleteThisProject() {
+      this.$emit("deleteProject", this.project.id);
     },
   },
 

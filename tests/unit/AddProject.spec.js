@@ -2,7 +2,6 @@ import { shallowMount } from "@vue/test-utils";
 import AddProject from "@/components/AddProject.vue";
 
 describe("AddProject.vue", () => {
-
   it("emits event when data is submitted", async () => {
     const wrapper = shallowMount(AddProject);
 
@@ -24,7 +23,6 @@ describe("AddProject.vue", () => {
       },
     ]);
   });
-
 
   it("clears the form when submitted", () => {
     const wrapper = shallowMount(AddProject);

@@ -26,6 +26,7 @@ export default {
       titleInput: "",
       descriptionInput: "",
       imageInput: "",
+      newProjectAdded: false,
     };
   },
 
@@ -40,10 +41,10 @@ export default {
 
       this.id++;
       this.$emit("addProject", newProject);
-
       this.titleInput = "";
       this.descriptionInput = "";
       this.imageInput = "";
+      this.newProjectAdded = true;
     },
   },
 };

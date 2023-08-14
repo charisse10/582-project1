@@ -5,6 +5,7 @@
       :project="project"
       @likeProject="likeProject"
       @unlikeProject="unlikeProject"
+      @deleteProject="deleteProject"
       :key="project.id"
     ></ProjectItem>
   </div>
@@ -23,15 +24,20 @@ export default {
       },
     },
   },
+
   components: {
     ProjectItem,
   },
+
   methods: {
     likeProject(id) {
       this.$emit("likeProject", id);
     },
     unlikeProject(id) {
       this.$emit("unlikeProject", id);
+    },
+    deleteProject(id) {
+      this.$emit("deleteProject", id);
     },
   },
 };

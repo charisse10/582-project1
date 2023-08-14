@@ -12,13 +12,17 @@
           :projects="projects"
           @likeProject="likeProject"
           @unlikeProject="unlikeProject"
+          @deleteProject="deleteProject"
         ></FavouritesList>
       </div>
     </section>
 
     <div class="right">
       <section class="add">
-        <AddProject @addProject="addProject"></AddProject>
+        <AddProject
+          @addProject="addProject"
+          @deleteNewProject="deleteNewProject"
+        ></AddProject>
       </section>
 
       <section class="liked-projects">
@@ -138,6 +142,13 @@ export default {
       this.projects.push(newProject);
       console.log("added:", this.projects);
     },
+
+    deleteProject(id) {
+      const index = this.projects.findIndex((project) => project.id === id);
+      if (index !== -1) {
+        this.projects.splice(index, 1);
+      }
+    },
   },
 };
 </script>
@@ -203,9 +214,9 @@ $gray: #f3f3f3;
   }
 
   main {
-    padding: 0 50px;
+    padding: 0 25px;
     .projects {
-      margin: 150px 0 50px;
+      margin: 125px 0 50px;
       .projects-flex {
         .project {
           width: 100%;
@@ -223,7 +234,7 @@ $gray: #f3f3f3;
           h3 {
             font-size: 1.5rem;
             color: $purple;
-            margin-bottom: 1rem;
+            margin: 1.5rem 0 1rem;
           }
 
           img {
@@ -249,29 +260,46 @@ $gray: #f3f3f3;
             font-size: 1.2rem;
             color: $purple;
           }
-        }
 
-        button {
-          font-size: 1.1rem;
-          text-transform: uppercase;
-          font-weight: bold;
-          border: 2px solid $purple;
-          display: block;
-          padding: 10px 35px;
-          border-radius: 25px;
-          margin-bottom: 0.5rem;
-          position: absolute;
-          bottom: 25px;
-          right: 0;
-          transform: translateX(-40px);
+          button {
+            display: block;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            font-weight: bold;
+          }
 
-          &:hover {
-            background-color: $yellow;
-            color: black;
-            transition: 1s;
+          .like,
+          .unlike {
+            position: absolute;
+            border: 2px solid $purple;
+            padding: 10px 35px;
+            border-radius: 25px;
+            margin-bottom: 0.5rem;
+            bottom: 25px;
+            right: 0;
+            transform: translateX(-40px);
+
+            &:hover {
+              background-color: $yellow;
+              transition: 1s;
+            }
+          }
+
+          .delete {
+            border: none;
+            padding: 2px 8px;
+            border-radius: 50%;
+            background-color: transparent;
+            position: absolute;
+            top: 10px;
+            right: 40px;
+
+            &:hover {
+              transform: scale(150%);
+              transition: 1s;
+            }
           }
         }
-
         .unlike {
           background-color: $purple;
           color: #fff;
@@ -285,7 +313,7 @@ $gray: #f3f3f3;
         border: 1px solid $purple;
         padding: 40px 25px 25px;
         text-align: center;
-        margin-bottom: 50px;
+        margin-bottom: 25px;
 
         label {
           margin-bottom: 1rem;
@@ -324,7 +352,7 @@ $gray: #f3f3f3;
         color: $purple;
         text-align: center;
         padding: 25px;
-        margin-bottom: 75px;
+        margin-bottom: 100px;
         font-size: 1.2rem;
         font-weight: bold;
 
@@ -335,7 +363,10 @@ $gray: #f3f3f3;
     } //right
   } //main
   footer {
-    background-color: $gray;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: $yellow;
     text-align: center;
     padding: 25px 0;
   }
@@ -348,6 +379,7 @@ $gray: #f3f3f3;
 
       .projects {
         width: 50%;
+        margin-bottom: 100px;
 
         .projects-flex {
           display: flex;
@@ -362,7 +394,7 @@ $gray: #f3f3f3;
         right: 0;
         top: 0;
         z-index: 0;
-        padding: 150px 50px 0;
+        padding: 125px 50px 0;
       }
     } //main
   } //app
@@ -373,7 +405,6 @@ $gray: #f3f3f3;
     main {
       .projects {
         width: 66.66%;
-
         .projects-flex {
           .project {
             width: calc((100% / 2) - 25px);
@@ -383,7 +414,7 @@ $gray: #f3f3f3;
 
       .right {
         width: 33.33%;
-        padding: 150px 50px 0 25px;
+        padding: 125px 50px 0 25px;
       }
     } //main
   } //app
@@ -394,7 +425,6 @@ $gray: #f3f3f3;
     main {
       .projects {
         width: 75%;
-
         .projects-flex {
           .project {
             width: calc((100% / 3) - 25px);

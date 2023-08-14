@@ -29,7 +29,7 @@ describe("FavouritesList.vue", () => {
     expect(projectItemWrappers.length).toBe(projects.length);
   });
 
-  it("emits likeProject event when ProjectItem Like button is clicked", async () => {
+  it("emits likeProject event when ProjectItem like button is clicked", async () => {
     const projects = [
       {
         id: 0,

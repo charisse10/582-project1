@@ -12,7 +12,7 @@ describe("ProjectItem.vue", () => {
     const wrapper = shallowMount(ProjectItem, {
       props: { project },
     });
-    expect(wrapper.find("h2").text()).toBe(project.title);
+    expect(wrapper.find("h3").text()).toBe(project.title);
     expect(wrapper.find("p").text()).toBe(project.description);
     expect(wrapper.find("img").attributes("src")).toBe(project.image);
   });
@@ -27,7 +27,7 @@ describe("ProjectItem.vue", () => {
       id: 0,
       title: "Project Name",
       description: "Description of the project",
-      image: "https://placehold.co/EEE/31343C0",
+      image: "https://placehold.co/EEE/355E3B",
     };
     const wrapper = shallowMount(ProjectItem, {
       props: { project },
@@ -74,11 +74,37 @@ describe("ProjectItem.vue", () => {
       props: { project },
     });
     wrapper.find("button").trigger("click");
-    expect(wrapper.emitted().addToFavourites).toBeTruthy();
-    expect(wrapper.emitted().addToFavourites[0]).toEqual([project.id]);
+    expect(wrapper.emitted().likeProject).toBeTruthy();
+    expect(wrapper.emitted().likeProject[0]).toEqual([project.id]);
   });
 
-  it("emits remove from favourites event when dislike button is clicked", () => {});
-
-  it("counts the number of likes when liked button is clicked", () => {});
+  it("emits delete project event when delete button is clicked", () => {
+    const project = {
+      id: 0,
+      title: "Project Name",
+      description: "Description of the project",
+      image: "https://placehold.co/EEE/31343C0",
+    };
+    const wrapper = shallowMount(ProjectItem, {
+      props: { project },
+    });
+    wrapper.find(".delete").trigger("click");
+    expect(wrapper.emitted().deleteProject).toBeTruthy();
+    expect(wrapper.emitted().deleteProject[0]).toEqual([project.id]);
+  });
+  
+  it("counts the number of likes when liked button is clicked", async () => {
+    const project = {
+      id: 0,
+      title: "Project Name",
+      description: "Description of the project",
+      image: "https://placehold.co/EEE/31343C0",
+    };
+    const wrapper = shallowMount(ProjectItem, {
+      props: { project },
+    });
+    expect(wrapper.find(".likes").text()).toBe("");
+    await wrapper.find("button").trigger("click");
+    expect(wrapper.find(".likes").text()).toBe("1 like");
+  });
 });
