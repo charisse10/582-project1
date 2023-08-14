@@ -371,9 +371,9 @@ $gray: #f3f3f3;
   } //main
 
   footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+    // position: fixed;
+    // bottom: 0;
+    // width: 100%;
     background-color: $yellow;
     text-align: center;
     padding: 25px 0;
