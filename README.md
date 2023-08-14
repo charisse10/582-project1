@@ -24,18 +24,24 @@ This is a basic web application created as a partial requirement to complete two
 4. Adds new projects
 5. Deletes projects
 
-## Project Requirements
+## Tasks
 
 - [x] Testing ProjectItem component
 - [x] Testing ProjectList component
 - [x] Testing AddProject component
-- [x] Project items
+- [x] Project item
 - [x] Project list
 - [x] Like
 - [x] Unlike
+- [x] Liked List
 - [x] Add project
 - [x] Delete project
 - [ ] Modify project
+- [ ] Commenting
+- [ ] Sharing
+- [ ] Categories
+- [ ] Filtering
+- [ ] Search
 
 ## Project setup
 ```
