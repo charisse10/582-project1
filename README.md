@@ -11,6 +11,7 @@
 ## Introduction
 
 This is a basic web application created as a partial requirement to complete two courses namely: Advanced Web Programming Technique and Web Framework as a fulfilment to the Web Design Specialist Program of Vanier College.
+![app](https://github.com/charisse10/582-project1/assets/118192587/9d354547-7b3f-42a1-a435-692dec5d3bec)
 
 ## Features
 
