@@ -8,12 +8,12 @@
     <section class="projects">
       <h2>Projects</h2>
       <div class="projects-flex">
-        <FavouritesList
+        <ProjectsList
           :projects="projects"
           @likeProject="likeProject"
           @unlikeProject="unlikeProject"
           @deleteProject="deleteProject"
-        ></FavouritesList>
+        ></ProjectsList>
       </div>
     </section>
 
@@ -38,7 +38,7 @@
 </template>
 
 <script>
-import FavouritesList from "./components/FavouritesList.vue";
+import ProjectsList from "./components/ProjectsList.vue";
 import AddProject from "./components/AddProject.vue";
 
 export default {
@@ -124,7 +124,7 @@ export default {
   },
 
   components: {
-    FavouritesList,
+    ProjectsList,
     AddProject,
   },
 
@@ -144,9 +144,14 @@ export default {
     },
 
     deleteProject(id) {
-      const index = this.projects.findIndex((project) => project.id === id);
-      if (index !== -1) {
-        this.projects.splice(index, 1);
+      for (const project of this.projects) {
+        if (project.id === id) {
+          const index = this.projects.indexOf(project);
+          if (index !== -1) {
+            this.projects.splice(index, 1);
+            break;
+          }
+        }
       }
     },
   },

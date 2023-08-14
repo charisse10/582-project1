@@ -15,7 +15,7 @@
 import ProjectItem from "./ProjectItem.vue";
 
 export default {
-  name: "FavouritesList",
+  name: "ProjectsList",
   props: {
     projects: {
       type: Array,

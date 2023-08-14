@@ -1,8 +1,8 @@
 import { shallowMount } from "@vue/test-utils";
-import ProjectItem from "@/components/FavouritesList.vue";
-import FavouritesList from "@/components/FavouritesList.vue";
+import ProjectItem from "@/components/ProjectsList.vue";
+import ProjectsList from "@/components/ProjectsList.vue";
 
-describe("FavouritesList.vue", () => {
+describe("ProjectsList.vue", () => {
   it("renders all the projects on the list of ProjectItem", () => {
     const projects = [
       {
@@ -18,7 +18,7 @@ describe("FavouritesList.vue", () => {
         image: "https://example.com/image2.jpg",
       },
     ];
-    const wrapper = shallowMount(FavouritesList, {
+    const wrapper = shallowMount(ProjectsList, {
       props: { projects },
       components: {
         ProjectItem,
@@ -38,7 +38,7 @@ describe("FavouritesList.vue", () => {
         image: "https://placehold.co/600x400/FF00FF/EEE?text=Hello+World",
       },
     ];
-    const wrapper = shallowMount(FavouritesList, {
+    const wrapper = shallowMount(ProjectsList, {
       props: { projects },
       components: {
         ProjectItem,
@@ -61,7 +61,7 @@ describe("FavouritesList.vue", () => {
       },
     ];
 
-    const wrapper = shallowMount(FavouritesList, {
+    const wrapper = shallowMount(ProjectsList, {
       propsData: { projects },
       components: {
         ProjectItem,
