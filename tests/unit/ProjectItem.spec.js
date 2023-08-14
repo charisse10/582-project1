@@ -92,7 +92,7 @@ describe("ProjectItem.vue", () => {
     expect(wrapper.emitted().deleteProject).toBeTruthy();
     expect(wrapper.emitted().deleteProject[0]).toEqual([project.id]);
   });
-  
+
   it("counts the number of likes when liked button is clicked", async () => {
     const project = {
       id: 0,

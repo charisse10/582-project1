@@ -215,16 +215,18 @@ $gray: #f3f3f3;
 
   main {
     padding: 0 25px;
+
     .projects {
       margin: 125px 0 50px;
+
       .projects-flex {
         .project {
           width: 100%;
-          margin: 0 auto 25px;
           background-color: $gray;
           text-align: center;
-          padding: 25px;
+          padding: 50px;
           position: relative;
+          margin-bottom: 50px;
 
           &:hover {
             box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
@@ -238,12 +240,12 @@ $gray: #f3f3f3;
           }
 
           img {
-            width: 90%;
+            width: 100%;
             margin: 0 auto 25px;
             transition: transform 1s ease;
 
             &:hover {
-              transform: scale(110%);
+              transform: scale(105%);
             }
           }
 
@@ -281,8 +283,14 @@ $gray: #f3f3f3;
 
             &:hover {
               background-color: $yellow;
+              color: #000000;
               transition: 1s;
             }
+          }
+
+          .unlike {
+            background-color: $purple;
+            color: #fff;
           }
 
           .delete {
@@ -300,29 +308,21 @@ $gray: #f3f3f3;
             }
           }
         }
-        .unlike {
-          background-color: $purple;
-          color: #fff;
-        }
       }
     }
-
     .right {
       form {
         background: $yellow;
         border: 1px solid $purple;
         padding: 40px 25px 25px;
         text-align: center;
+        font-weight: bolder;
         margin-bottom: 25px;
-
-        label {
-          margin-bottom: 1rem;
-        }
 
         input {
           display: block;
           margin: 0 auto 25px;
-          width: 50%;
+          width: 60%;
           padding: 10px;
           border-radius: 10px;
         }
@@ -341,6 +341,7 @@ $gray: #f3f3f3;
           text-transform: uppercase;
           width: 150px;
           border-radius: 10px;
+          padding: 10px 25px;
 
           &:hover {
             background-color: black;
@@ -348,6 +349,7 @@ $gray: #f3f3f3;
           }
         }
       }
+
       .liked-projects {
         color: $purple;
         text-align: center;
@@ -362,6 +364,7 @@ $gray: #f3f3f3;
       }
     } //right
   } //main
+
   footer {
     position: fixed;
     bottom: 0;
@@ -379,13 +382,14 @@ $gray: #f3f3f3;
 
       .projects {
         width: 50%;
-        margin-bottom: 100px;
+        margin-bottom: 125px;
 
         .projects-flex {
-          display: flex;
-          flex-wrap: wrap;
+          .project {
+            margin-bottom: 50px;
+          } //project
         } //projects-flex
-      } //projects
+      }
 
       .right {
         width: 50%;
@@ -395,6 +399,8 @@ $gray: #f3f3f3;
         top: 0;
         z-index: 0;
         padding: 125px 50px 0;
+
+        overflow-y: auto;
       }
     } //main
   } //app
@@ -402,12 +408,34 @@ $gray: #f3f3f3;
 
 @media only screen and (min-width: 1200px) {
   #app {
+    h2 {
+      font-size: 2.5rem;
+    }
+
+    header {
+      h1 {
+        font-size: 3rem;
+      }
+    }
+
     main {
       .projects {
         width: 66.66%;
         .projects-flex {
+          display: flex;
+          justify-content: space-between;
+          flex-wrap: wrap;
+
           .project {
-            width: calc((100% / 2) - 25px);
+            width: calc((100% - 50px) / 2);
+
+            h3 {
+              font-size: 1.8rem;
+            }
+
+            p {
+              font-size: 1.1rem;
+            }
           } //project
         } //projects-flex
       } //projects
@@ -427,7 +455,7 @@ $gray: #f3f3f3;
         width: 75%;
         .projects-flex {
           .project {
-            width: calc((100% / 3) - 25px);
+            width: calc((100% - 100px) / 3);
           } //project
         } //projects-flex
       } //projects
