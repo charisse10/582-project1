@@ -6,7 +6,7 @@
 
 - [Introduction](#introduction)
 - [Features](#features)
-- [Requirements](#requirements)
+- [Tasks](#tasks)
 - [Project Setup](#projectsetup)
 
 ## Introduction
