@@ -135,18 +135,12 @@ export default {
 
     addProject(newProject) {
       this.projects.push(newProject);
-      console.log("added:", this.projects);
     },
 
     deleteProject(id) {
-      for (const project of this.projects) {
-        if (project.id === id) {
-          const index = this.projects.indexOf(project);
-          if (index !== -1) {
-            this.projects.splice(index, 1);
-            break;
-          }
-        }
+      const index = this.projects.findIndex((project) => project.id === id);
+      if (index !== -1) {
+        this.projects.splice(index, 1);
       }
     },
   },
