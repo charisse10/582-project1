@@ -408,7 +408,7 @@ $gray: #f3f3f3;
 @media only screen and (min-width: 1200px) {
   #app {
     h2 {
-      font-size: 2.5rem;
+      font-size: 2rem;
     }
 
     header {
