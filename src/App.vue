@@ -19,10 +19,7 @@
 
     <div class="right">
       <section class="add">
-        <AddProject
-          @addProject="addProject"
-          @deleteNewProject="deleteNewProject"
-        ></AddProject>
+        <AddProject @addProject="addProject"></AddProject>
       </section>
 
       <section class="liked-projects">
@@ -33,8 +30,6 @@
       </section>
     </div>
   </main>
-
-  <footer>Copyright 2023 © Hello World</footer>
 </template>
 
 <script>
@@ -369,15 +364,6 @@ $gray: #f3f3f3;
       }
     } //right
   } //main
-
-  footer {
-    // position: fixed;
-    // bottom: 0;
-    // width: 100%;
-    background-color: $yellow;
-    text-align: center;
-    padding: 25px 0;
-  }
 } //app
 
 @media only screen and (min-width: 768px) {
